@@ -31,8 +31,13 @@ public class DPQsort_Chinese_pinyin {
     public static List<String> keyList;
     public static String pi;
     public static String[] pinArr;
-    public static String[] sort(String[] a) throws IOException {
+
+     public static String[] sort(String[] a) throws IOException {
+
+
        // public static void sort(String[] a) throws IOException {
+
+       // System.out.println("Inside sort");
         n=a.length;
         pinArr=new String[n];
         for(int i=0;i<n;i++){
