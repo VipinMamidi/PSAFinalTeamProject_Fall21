@@ -1,4 +1,4 @@
-package FinalTeamProject_Fall2021_Sec06;
+package FinalTeamProject_Fall2021_Sec06.MSDRadixSort;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,14 +27,6 @@ public class MSDRadixSort_toSortChineseWordsTest {
         assertArrayEquals(expected, a);
     }
 
-
-
-
-
-
-
-
-
     @Test
     public void msd_coll() {
     }
@@ -48,10 +40,18 @@ public class MSDRadixSort_toSortChineseWordsTest {
     }
 
     @Test
+    public void msd_rad() {
+    }
+
+    @Test
+    public void main() {
+    }
+
+    @Test
     public void printWordsToFile() {
     }
 
     @Test
-    public void removePair() {
+    public void log() {
     }
 }

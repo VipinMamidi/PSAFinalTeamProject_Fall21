@@ -1,4 +1,4 @@
-package Fall_2021_Final_Team_Project;
+package FinalTeamProject_Fall2021_Sec06.Utilities;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 public class testPinyinCharacters {
