@@ -12,8 +12,7 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -22,10 +21,7 @@ import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 
 public class MSDRadixSort_toSortChineseWords {
@@ -61,19 +57,18 @@ public class MSDRadixSort_toSortChineseWords {
             aux = new String[n];
         log("Printing cA Before Sort and Sending to Sort");
 
-        //printBeforeSort(cA);
         msd_rad(cA,aux,0,hi,0);
-
 
         log("Sort After cA Length : " + cA.length);
         log("Sort After multimap Length : " + multimap.size());
 
         a = cA;
-       // printAfterSort(cA);
+
         printWordsToFile(cA);
 
         log(" cA Length After Printing: " + cA.length);
         log("multimap Length After Printing: " + multimap.size());
+
 
         finalArray = new String[finalList.size()];
         finalArray = finalList.toArray(finalArray);
@@ -98,8 +93,6 @@ public class MSDRadixSort_toSortChineseWords {
             format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
             format.setToneType(HanyuPinyinToneType.WITH_TONE_NUMBER);
             format.setVCharType(HanyuPinyinVCharType.WITH_U_UNICODE);
-
-
 
             char[] input = sa.trim().toCharArray();
             for (int j = 0; j < input.length; j++) {
@@ -145,38 +138,70 @@ public class MSDRadixSort_toSortChineseWords {
 
         Instant start = Instant.now();
 
-        List<String> lines = Files.readAllLines(Paths.get("/Users/vipinmamidi/Documents/NEU/1st SEM/PSA/FinalProject/split/OneTh.txt"), Charset.forName("UTF-8"));
+        String Path = "src/main/java/FinalTeamProject_Fall2021_Sec06/Resources/1000ShuffedChineseWords.txt";
+
+
+
+        MSDRadixSort_toSortChineseWords msd = new MSDRadixSort_toSortChineseWords();
+        array = msd.getStringArray(Path);
+
         log("Files Read");
-        String[] str = lines.stream().toArray(String[]::new);
+
         log("Converted to String Array");
-        n = str.length;
+        n = array.length;
         log("Sending to Sort");
-        sort(str);
+        sort(array);
 
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
         System.out.println("Time taken: " + timeElapsed.toMillis() + " milliseconds");
     }
 
+    public String[] getStringArray(String path) throws IOException {
+
+        String lines = "";
+
+        try {
+            BufferedReader objBr = new BufferedReader(new FileReader(path));
+
+            while ((lines = objBr.readLine()) != null) {
+                String values = lines.toString();
+                initialList.add(values);
+            }
+            String[] ar = new String[initialList.size()];
+            ar = initialList.toArray(ar);
+
+            array = ar;
+        }
+        catch(FileNotFoundException ex){
+        }
+        catch(IOException ex){
+        }
+
+        return  array;
+
+    }
+
 
     public static void printWordsToFile(String[] str) throws IOException {
-        FileWriter writer = new FileWriter("/Users/vipinmamidi/Documents/NEU/1st SEM/PSA/FinalProject/split/VipOneTh.txt");
-        FileWriter writer_withPi = new FileWriter("/Users/vipinmamidi/Documents/NEU/1st SEM/PSA/FinalProject/split/VipOneTh_WithTone.txt");
+
+       // FileWriter writer = new FileWriter("src/main/java/FinalTeamProject_Fall2021_Sec06/Result/1000sortedhuffedChineseWords.txt");
+        //FileWriter writer_withPi = new FileWriter("src/main/java/FinalTeamProject_Fall2021_Sec06/Result/sortedShuffledChinese_withTone.txt");
+        finalList = new ArrayList<String>();
         for(String s :str){
             Collection<String> value =  multimap.get(s);
 
              if(!value.isEmpty()){
                  for(String ss : value){
-                     writer.write( ss + "\n");
-                     writer_withPi.write( s + " :: " + ss + "\n");
+                //     writer.write( ss + "\n");
+                //     writer_withPi.write( s + " :: " + ss + "\n");
                      finalList.add(ss);
-
                  }
                  multimap.asMap().remove(s);
              }
         }
 
-        writer.close();
+       // writer.close();
     }
 
     public static void log(String str){
@@ -189,6 +214,7 @@ public class MSDRadixSort_toSortChineseWords {
     private static int n;
 
 
+    public static String[] array;
     public static String[] gA; //Global Array
     public static String[] cA; //Chinese Array
 
@@ -198,6 +224,7 @@ public class MSDRadixSort_toSortChineseWords {
     public static List<String> keyList;
 
     public static ArrayList<String> finalList = new ArrayList<String>();
+    public static ArrayList<String> initialList = new ArrayList<String>();
     public static String[] finalArray;
 
 
