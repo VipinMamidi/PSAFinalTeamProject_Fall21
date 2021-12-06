@@ -9,7 +9,7 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,10 +18,7 @@ import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class LSDsort_Chinese_Pinyin {
     private static final int ASCII_RANGE = 256;
@@ -32,6 +29,10 @@ public class LSDsort_Chinese_Pinyin {
     public static List<String> keyList;
     public static String pi;
     public static String[] pinArr;
+    public static List<String> initialList=new ArrayList<>();
+    public static String[] array;
+    public static String[] op;
+    public static String[] outputArray ;
     private static int findMaxLength(String[] al) {
         int maxLength = al[0].length();
         for (String str : al)
@@ -56,7 +57,8 @@ public class LSDsort_Chinese_Pinyin {
         int maxLength = findMaxLength(pinArr);
         for (int i = maxLength - 1; i >= 0; i--)
             LSDwithPinyin(pinArr, i, from, to);
-        return printWordsToFile(pinArr);
+        printWordsToFile(pinArr);
+        return outputArray;
     }
     public static String getPinYin(String sa) {
         StringBuffer output = new StringBuffer("");
@@ -104,39 +106,69 @@ public class LSDsort_Chinese_Pinyin {
         // copy back
         if (to + 1 - from >= 0) System.arraycopy(result, 0, a, from, to + 1 - from);
     }
-   public static String[] printWordsToFile(String[] str) throws IOException {
+   public static void printWordsToFile(String[] str) throws IOException {
        // public static void printWordsToFile(String[] str) throws IOException {
-        String[] op=new String[str.length];
+
+       outputArray=new String[str.length];
+       op=new String[str.length];
         int i=0;
-      //  FileWriter writer = new FileWriter("/Users/sowmyachinimilli/MSIS/PSA/Output/LSDsmallsortedChineseOutput.txt");
+        FileWriter writer = new FileWriter("src/main/java/FinalTeamProject_Fall2021_Sec06/Result/LSDsortedChinese1000.txt");
         for(String s :str){
             Collection<String> value =  multimap.get(s);
             if(!value.isEmpty()){
                 for(String ss : value){
-                    //writer.write( ss + "\n");
+                    writer.write( ss + "\n");
                     op[i]=ss;
+                    outputArray[i]=op[i];
                     i++;
                     //System.out.println(s +" : "+ss+"\n");
                 }
                 multimap.asMap().remove(s);
             }
         }
-       // writer.close();
-        return op;
+        writer.close();
+    }
+    public String[] getStringArray(String path) throws IOException {
+
+        String lines = "";
+        initialList = new ArrayList<>();
+
+        try {
+            BufferedReader objBr = new BufferedReader(new FileReader(path));
+
+            while ((lines = objBr.readLine()) != null) {
+                String values = lines.toString();
+                initialList.add(values);
+            }
+            String[] ar = new String[initialList.size()];
+            ar = initialList.toArray(ar);
+
+           return ar;
+        }
+        catch(FileNotFoundException ex){
+        }
+        catch(IOException ex){
+        }
+
+        return  null;
+
     }
     public static void main(String[] args) throws IOException {
         formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG).withLocale(Locale.US)
                 .withZone(ZoneOffset.UTC);
         Instant start = Instant.now();
         System.out.println("Program Started :: " + formatter.format( start ) );
-        List<String> lines = Files.readAllLines(Paths.get("/Users/sowmyachinimilli/MSIS/PSA/smallSortedChineseJum.txt"), Charset.forName("UTF-8"));
-        System.out.println("Files Read");
-        String[] str = lines.stream().toArray(String[]::new);
-        System.out.println("Converted to String Array");
-        n = str.length;
+        //List<String> lines = Files.readAllLines(Paths.get("/Users/sowmyachinimilli/MSIS/PSA/smallSortedChineseJum.txt"), Charset.forName("UTF-8"));
+        //System.out.println("Files Read");
+        //String[] str = lines.stream().toArray(String[]::new);
+        //System.out.println("Converted to String Array");
+        //n = str.length;
+        String Path = "src/main/java/FinalTeamProject_Fall2021_Sec06/Resources/shuffledChinese1000.txt";
+        LSDsort_Chinese_Pinyin lsdSortChinese =  new LSDsort_Chinese_Pinyin();
+        String[] str=lsdSortChinese.getStringArray(Path);
         System.out.println("Sending to Sort");
-        sort(str,0,n-1);
-        printWordsToFile(pinArr);
+        sort(str,0,str.length-1);
+        //printWordsToFile(pinArr);
         System.out.println(pinArr.length);
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);

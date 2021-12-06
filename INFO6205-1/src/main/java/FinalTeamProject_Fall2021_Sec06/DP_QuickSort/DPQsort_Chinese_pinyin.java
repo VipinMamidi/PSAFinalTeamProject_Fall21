@@ -8,8 +8,9 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
+import org.apache.logging.log4j.ThreadContext;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,10 +19,7 @@ import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class DPQsort_Chinese_pinyin {
     private static int n;
@@ -31,13 +29,13 @@ public class DPQsort_Chinese_pinyin {
     public static List<String> keyList;
     public static String pi;
     public static String[] pinArr;
-
+    public static List<String> initialList= new ArrayList<>();
+    public static String[] array;
+    public static String[] op;
+    public static String[] outputArray;
      public static String[] sort(String[] a) throws IOException {
 
 
-       // public static void sort(String[] a) throws IOException {
-
-       // System.out.println("Inside sort");
         n=a.length;
         pinArr=new String[n];
         for(int i=0;i<n;i++){
@@ -46,7 +44,8 @@ public class DPQsort_Chinese_pinyin {
             multimap.put(pi,a[i]);
         }
         DPQsortwithPinyin(pinArr,0,n-1);
-        return printWordsToFile(pinArr);
+        printWordsToFile(pinArr);
+        return outputArray;
     }
     public static void DPQsortwithPinyin(String[] a, int low, int high) throws IOException {
         if(high<=low) return;
@@ -105,39 +104,66 @@ public class DPQsort_Chinese_pinyin {
     }
 
 
-    public static String[] printWordsToFile(String[] str) throws IOException {
-      //  public static void printWordsToFile(String[] str) throws IOException {
-        String[] op=new String[str.length];
+    public static void printWordsToFile(String[] str) throws IOException {
+        outputArray=new String[str.length];
+        op=new String[str.length];
         int i=0;
-      //  FileWriter writer = new FileWriter("/Users/sowmyachinimilli/MSIS/PSA/Output/DPQsortChinesepin_Output4M.txt");
+       FileWriter writer = new FileWriter("src/main/java/FinalTeamProject_Fall2021_Sec06/Result/TestDPQSortedChinese1000.txt");
         for(String s :str){
             Collection<String> value =  multimap.get(s);
             if(!value.isEmpty()){
                 for(String ss : value){
-                 //   writer.write( ss + "\n");
+                    writer.write( ss + "\n");
                 //    System.out.println(s +" : "+ss+"\n");
                     op[i]=ss;
+                    outputArray[i]=op[i];
                     i++;
                 }
                 multimap.asMap().remove(s);
             }
         }
-       // writer.close();
-        return op;
+        writer.close();
+    }
+    public String[] getStringArray(String path) throws IOException {
+
+        String lines = "";
+
+        try {
+            BufferedReader objBr = new BufferedReader(new FileReader(path));
+
+            while ((lines = objBr.readLine()) != null) {
+                String values = lines.toString();
+                initialList.add(values);
+            }
+            String[] ar = new String[initialList.size()];
+            ar = initialList.toArray(ar);
+
+            array = ar;
+        }
+        catch(FileNotFoundException ex){
+        }
+        catch(IOException ex){
+        }
+
+        return  array;
+
     }
     public static void main(String[] args) throws IOException {
         formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG).withLocale(Locale.US)
                 .withZone(ZoneOffset.UTC);
         Instant start = Instant.now();
         System.out.println("Program Started :: " + formatter.format( start ) );
-        List<String> lines = Files.readAllLines(Paths.get("/Users/sowmyachinimilli/MSIS/PSA/shuffledChinese4M.txt"), Charset.forName("UTF-8"));
+       // List<String> lines = Files.readAllLines(Paths.get("/Users/sowmyachinimilli/MSIS/PSA/shuffledChinese4M.txt"), Charset.forName("UTF-8"));
         System.out.println("Files Read");
-        String[] str = lines.stream().toArray(String[]::new);
-        System.out.println("Converted to String Array");
-        n = str.length;
+       // String[] str = lines.stream().toArray(String[]::new);
+      //  System.out.println("Converted to String Array");
+      //  n = str.length;
+        String Path = "src/main/java/FinalTeamProject_Fall2021_Sec06/Resources/shuffledChinese1000.txt";
+        DPQsort_Chinese_pinyin dqpSortChinese =  new DPQsort_Chinese_pinyin();
+        String[] str=dqpSortChinese.getStringArray(Path);
         System.out.println("Sending to Sort");
         sort(str);
-        printWordsToFile(pinArr);
+        //printWordsToFile(pinArr);
         System.out.println(pinArr.length);
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);

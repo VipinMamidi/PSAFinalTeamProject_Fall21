@@ -18,3 +18,71 @@
 2021-12-05 18:12:05 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
 2021-12-05 18:19:57 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
 2021-12-05 18:20:08 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 19:43:32 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 19:43:42 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 20:42:55 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 20:43:05 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 20:43:18 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 20:49:05 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 20:49:15 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 20:49:30 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 20:49:31 INFO  Benchmark_Timer - Begin run: MSD Sort with 20 runs
+2021-12-05 21:14:25 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 21:14:36 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 21:16:14 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 21:16:24 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 21:16:37 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 21:18:46 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 21:19:06 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 21:19:32 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 21:32:12 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 21:32:58 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 21:33:51 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 21:33:56 INFO  Benchmark_Timer - Begin run: MSD Sort with 20 runs
+2021-12-05 21:42:15 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 21:42:59 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 21:46:45 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 21:47:31 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 21:48:24 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 21:52:35 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 21:54:03 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 21:55:47 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 21:57:15 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 22:00:15 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 22:03:33 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 22:04:41 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 22:05:03 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 22:05:30 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 22:06:02 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 20 runs
+2021-12-05 22:06:13 INFO  Benchmark_Timer - Begin run: LSD Sort with 20 runs
+2021-12-05 22:06:26 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 20 runs
+2021-12-05 22:07:04 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 40 runs
+2021-12-05 22:07:25 INFO  Benchmark_Timer - Begin run: LSD Sort with 40 runs
+2021-12-05 22:07:53 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 40 runs
+2021-12-05 22:11:28 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 40 runs
+2021-12-05 22:12:09 INFO  Benchmark_Timer - Begin run: LSD Sort with 40 runs
+2021-12-05 22:13:04 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 40 runs
+2021-12-05 22:13:41 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 40 runs
+2021-12-05 22:15:18 INFO  Benchmark_Timer - Begin run: LSD Sort with 40 runs
+2021-12-05 22:17:08 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 40 runs
+2021-12-05 22:18:02 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 40 runs
+2021-12-05 22:21:10 INFO  Benchmark_Timer - Begin run: LSD Sort with 40 runs
+2021-12-05 22:24:41 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 40 runs
+2021-12-05 22:30:29 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 40 runs
+2021-12-05 22:36:28 INFO  Benchmark_Timer - Begin run: LSD Sort with 40 runs
+2021-12-05 22:43:44 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 40 runs
+2021-12-05 22:47:35 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 60 runs
+2021-12-05 22:48:05 INFO  Benchmark_Timer - Begin run: LSD Sort with 60 runs
+2021-12-05 22:48:46 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 60 runs
+2021-12-05 23:01:15 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 60 runs
+2021-12-05 23:02:16 INFO  Benchmark_Timer - Begin run: LSD Sort with 60 runs
+2021-12-05 23:03:35 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 60 runs
+2021-12-05 23:04:52 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 60 runs
+2021-12-05 23:07:12 INFO  Benchmark_Timer - Begin run: LSD Sort with 60 runs
+2021-12-05 23:09:55 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 60 runs
+2021-12-05 23:11:18 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 60 runs
+2021-12-05 23:16:25 INFO  Benchmark_Timer - Begin run: LSD Sort with 60 runs
+2021-12-05 23:22:37 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 60 runs
+2021-12-05 23:25:16 INFO  Benchmark_Timer - Begin run: Dual Pivot Quick Sort with 60 runs
+2021-12-05 23:35:36 INFO  Benchmark_Timer - Begin run: LSD Sort with 60 runs
+2021-12-05 23:54:43 INFO  Benchmark_Timer - Begin run: Pure Husky Sort with 60 runs
