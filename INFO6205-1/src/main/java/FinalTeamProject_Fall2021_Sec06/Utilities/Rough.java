@@ -9,11 +9,7 @@ public class Rough {
     public static void main(String[] args) throws Exception {
 
 
-
-
-
-
-       /* ArrayList<String> scripts = new ArrayList<String>();
+        ArrayList<String> scripts = new ArrayList<String>();
         scripts.add("test3");
         scripts.add("test4");
         scripts.add("test5");
@@ -22,7 +18,7 @@ public class Rough {
         stockArr = scripts.toArray(stockArr);
 
         for(String s : stockArr)
-            System.out.println(s);*/
+            System.out.println(s);
 
 
         /*MultiMap Code*/
