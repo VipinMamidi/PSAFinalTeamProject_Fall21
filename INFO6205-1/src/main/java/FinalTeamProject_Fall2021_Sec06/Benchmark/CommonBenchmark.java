@@ -36,8 +36,14 @@ public class CommonBenchmark {
         PureHuskySort<String> husky = new PureHuskySort<>(HuskyCoderFactory.unicodeCoder, false, false);
         husky.sort(x);
     }
+
+    public static String[] MSDConfunc(String[] x) throws IOException {
+        String[] a = MSDRadixSort_toSortChineseWords.sort(x);
+        return a;
+    }
+
     public static void main(String[] args) throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get("src/main/java/FinalTeamProject_Fall2021_Sec06/Resources/shuffledChinese4M.txt"), Charset.forName("UTF-8"));
+        List<String> lines = Files.readAllLines(Paths.get("src/main/java/FinalTeamProject_Fall2021_Sec06/Resources/100ShuffedChineseWords.txt"), Charset.forName("UTF-8"));
         String[] input = lines.stream().toArray(String[]::new);
 
         Supplier<String[]> sup = () -> Supfunc(input);
@@ -61,6 +67,15 @@ public class CommonBenchmark {
         CommonBenchmark.runBenchmark(input,LSDsort,sup,"LSD Sort");
         Consumer<String[]> Huskysort = (x) -> Huskyconfunc(input);
         CommonBenchmark.runBenchmark(input,Huskysort,sup,"Pure Husky Sort");
+
+        Consumer<String[]> MSD = (x) -> {
+            try {
+                MSDConfunc(input);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        };
+        CommonBenchmark.runBenchmark(input,MSD,sup,"MSD Radix Sort");
     }
 }
 

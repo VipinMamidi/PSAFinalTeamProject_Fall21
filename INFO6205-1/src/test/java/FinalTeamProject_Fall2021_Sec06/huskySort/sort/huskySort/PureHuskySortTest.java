@@ -23,8 +23,7 @@ public class PureHuskySortTest {
     @Test
     public void testSortString1() throws IOException {
         // String[] xs={"啊","这", "都", "能", "赢"};
-        System.out.println("250k File");
-        List<String> lines = Files.readAllLines(Paths.get("/Users/sowmyachinimilli/MSIS/PSA/shuffledChinese250k.txt"), Charset.forName("UTF-8"));
+        List<String> lines = Files.readAllLines(Paths.get("src/main/java/FinalTeamProject_Fall2021_Sec06/Resources/shuffledChinese100.txt"), Charset.forName("UTF-8"));
         String[] xs = lines.stream().toArray(String[]::new);
         PureHuskySort<String> sorter = new PureHuskySort<>(HuskyCoderFactory.unicodeCoder, false, false);
         sorter.sort(xs);
@@ -33,8 +32,7 @@ public class PureHuskySortTest {
 
     @Test
     public void testSortString2() throws IOException {
-        System.out.println("500k File");
-        List<String> lines = Files.readAllLines(Paths.get("/Users/sowmyachinimilli/MSIS/PSA/shuffledChinese500k.txt"), Charset.forName("UTF-8"));
+        List<String> lines = Files.readAllLines(Paths.get("src/main/java/FinalTeamProject_Fall2021_Sec06/Resources/shuffledChinese500.txt"), Charset.forName("UTF-8"));
         String[] xs = lines.stream().toArray(String[]::new);
         PureHuskySort<String> sorter = new PureHuskySort<>(HuskyCoderFactory.unicodeCoder, false, false);
         sorter.sort(xs);
@@ -43,33 +41,13 @@ public class PureHuskySortTest {
 
     @Test
     public void testSortString3() throws IOException {
-        System.out.println("1M File");
-        List<String> lines = Files.readAllLines(Paths.get("/Users/sowmyachinimilli/MSIS/PSA/shuffledChinese1M.txt"), Charset.forName("UTF-8"));
+        List<String> lines = Files.readAllLines(Paths.get("src/main/java/FinalTeamProject_Fall2021_Sec06/Resources/shuffledChinese1000.txt"), Charset.forName("UTF-8"));
         String[] xs = lines.stream().toArray(String[]::new);
         PureHuskySort<String> sorter = new PureHuskySort<>(HuskyCoderFactory.unicodeCoder, false, false);
         sorter.sort(xs);
         assertTrue("sorted", helper.sorted(xs));
     }
 
-    @Test
-    public void testSortString4() throws IOException {
-        System.out.println("2M File");
-        List<String> lines = Files.readAllLines(Paths.get("/Users/sowmyachinimilli/MSIS/PSA/shuffledChinese2M.txt"), Charset.forName("UTF-8"));
-        String[] xs = lines.stream().toArray(String[]::new);
-        PureHuskySort<String> sorter = new PureHuskySort<>(HuskyCoderFactory.unicodeCoder, false, false);
-        sorter.sort(xs);
-        assertTrue("sorted", helper.sorted(xs));
-    }
-
-    @Test
-    public void testSortString5() throws IOException {
-        System.out.println("4M File");
-        List<String> lines = Files.readAllLines(Paths.get("/Users/sowmyachinimilli/MSIS/PSA/shuffledChinese4M.txt"), Charset.forName("UTF-8"));
-        String[] xs = lines.stream().toArray(String[]::new);
-        PureHuskySort<String> sorter = new PureHuskySort<>(HuskyCoderFactory.unicodeCoder, false, false);
-        sorter.sort(xs);
-        assertTrue("sorted", helper.sorted(xs));
-    }
 
     @Test
     public void testFloorLg() {
